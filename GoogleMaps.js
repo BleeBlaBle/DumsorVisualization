@@ -1,11 +1,11 @@
  function initialize() {
         var mapCanvas = document.getElementById('map-canvas');
         var mapOptions = {
-          center: new google.maps.LatLng(8.00, 2.00),
-          zoom: 6,
+          center: new google.maps.LatLng(8.00, -1.00),
+          zoom: 8,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
-        var map = new google.maps.Map(mapCanvas, mapOptions)
+        var map = new google.maps.Map(mapCanvas, mapOptions);
         var heatMapData = [
           //This is where we would put the data from the server//
 		  {location: new google.maps.LatLng(37.782, -122.447), weight: 0.5},
@@ -29,5 +29,8 @@
 		});
 		heatmap.setMap(map);
       }
+function toggleHeatmap() {
+heatmap.setMap(heatmap.getMap() ? null : map);
+}
 google.maps.event.addDomListener(window, 'load', initialize);
 
